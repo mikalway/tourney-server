@@ -33,7 +33,8 @@ module.exports = function(app, db) {
       name: req.body.name, 
       playerId1: req.body.playerId1, 
       playerId2: req.body.playerId2,
-      image: req.body.image
+      image: req.body.image,
+      backupImage: req.body.backupImage
     };
     db.collection(collection).insert(team, (err, result) => {
       if (err) { 
@@ -65,7 +66,8 @@ module.exports = function(app, db) {
       name: req.body.name, 
       playerId1: req.body.playerId1, 
       playerId2: req.body.playerId2,
-      image: req.body.image
+      image: req.body.image,
+      backupImage: req.body.backupImage
     };
     db.collection(collection).update(details, team, (err, result) => {
       if (err) {
