@@ -13,9 +13,9 @@ module.exports = function(app, db) {
     });
   });
 
-  /* ADD TEAM */
+  /* ADD GROUPS */
   app.post('/groups', (req, res) => {
-    const groups = { a: req.body.a, b: req.body.b, c: req.body.c, d: req.body.d };
+    const groups = { groups: req.body };
     db.collection(collection).insert(groups, (err, result) => {
       if (err) { 
         res.send({ 'error': 'An error has occurred' }); 
@@ -29,7 +29,7 @@ module.exports = function(app, db) {
   app.put('/groups/:id', (req, res) => {
     const id = req.params.id
     const details = { '_id': new ObjectID(id) };
-    const groups = { a: req.body.a, b: req.body.b, c: req.body.c, d: req.body.d };
+    const groups = { groups: req.body };
     db.collection(collection).update(details, groups, (err, result) => {
       if (err) { 
         res.send({ 'error': 'An error has occurred' }); 
